@@ -12,10 +12,11 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 		$model = Adminify\Libraries\Helpers::getModel($model);
 		if(is_null($model)) return Redirect::to('/admin');
 
-		$entries = $model::all();
 		$table = strtolower(Str::plural($model));
 		$structure = DB::query("SHOW COLUMNS FROM `".$table."`");
 		$excluded = Helpers::getFields($model);
+
+		$entries = DB::table($table)->paginate(Config::get('adminify::settings.perpage'));
 
 		$this->layout->title = $model;
 		$this->layout->nest('content', 'adminify::models.index', array(

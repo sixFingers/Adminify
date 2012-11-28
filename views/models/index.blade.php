@@ -17,7 +17,7 @@
 </div>
 @endif
 
-@if(!empty($entries))
+@if(!empty($entries->results))
 
 	<table class="table table-striped table-bordered">
 		<thead>
@@ -34,7 +34,7 @@
 		</thead>
 		<tbody>
 
-			@foreach($entries as $entry)
+			@foreach($entries->results as $entry)
 
 			<tr>
 				<td>
@@ -69,5 +69,5 @@
 
 		</tbody>
 	</table>
-
+	{{$entries->links()}}
 @endif
