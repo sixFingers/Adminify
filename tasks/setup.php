@@ -11,7 +11,6 @@ class Adminify_Setup_Task {
 			die("Error: Please enter first name, last name, username, email address and password\n");
 		}
 
-		Command::run(array('migrate', 'adminify'));
 		Command::run(array('bundle:publish', 'adminify'));
 
 		$role = (!isset($arguments[5])) ? 'admin' : $arguments[5];
