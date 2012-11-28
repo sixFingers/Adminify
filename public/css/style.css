@@ -5,7 +5,7 @@ body{
 
 .well-white{
 	background: #fff;
-	overflow: scroll;
+	overflow-x: auto;
 }
 
 .main-cont{
