@@ -12,7 +12,7 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 		$model = Adminify\Libraries\Helpers::getModel($model);
 		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::handle());
 
-		$table = strtolower(Str::plural($model));
+		$table = property_exists($model, 'table') && !is_null($model::$table) ? $model::$table : strtolower(Str::plural($model));
 		$structure = DB::query("SHOW COLUMNS FROM `".$table."`");
 		$excluded = Helpers::getFields($model);
 
@@ -36,7 +36,7 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 		$model = Adminify\Libraries\Helpers::getModel($model);
 		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::url('/'));
 
-		$table = strtolower(Str::plural($model));
+		$table = property_exists($model, 'table') && !is_null($model::$table) ? $model::$table : strtolower(Str::plural($model));
 		$structure = DB::query("SHOW COLUMNS FROM `".$table."`");
 		$excluded = Helpers::getFields($model);
 
@@ -114,7 +114,7 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::url('/'));
 
 		$entry = $model::find($id);
-		$table = strtolower(Str::plural($model));
+		$table = property_exists($model, 'table') && !is_null($model::$table) ? $model::$table : strtolower(Str::plural($model));
 		$structure = DB::query("SHOW COLUMNS FROM `".$table."`");
 		$excluded = Helpers::getFields($model);
 
