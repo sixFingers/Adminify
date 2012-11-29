@@ -33,3 +33,9 @@ Finally, pop a user in the database
 You can also pass through an optional 5th argument of role; the default is admin for first setup.
 
 When you're done you should have an admin panel at youapplication.com/admin
+
+## Changelog
+
+### v1.01
+
+Adminify now works on a different handle, hazzah!

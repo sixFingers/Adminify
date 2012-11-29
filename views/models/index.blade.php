@@ -44,12 +44,12 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="/admin/models/edit/{{$name}}/{{$entry->id}}" title="Edit">
+								<a href="{{Adminify\Libraries\Helpers::url("/models/edit/$name/".$entry->id)}}" title="Edit">
 									Edit
 								</a>
 							</li>
 							<li>
-								<a href="/admin/models/delete/{{$name}}/{{$entry->id}}" title="Delete">
+								<a href="{{Adminify\Libraries\Helpers::url("/models/delete/$name/".$entry->id)}}" title="Delete">
 									Delete
 								</a>
 							</li>

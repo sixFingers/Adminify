@@ -7,10 +7,10 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 
 	public function get_index($model=null){
 
-		if(is_null($model)) return Redirect::to('/admin');
+		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::handle());
 
 		$model = Adminify\Libraries\Helpers::getModel($model);
-		if(is_null($model)) return Redirect::to('/admin');
+		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::handle());
 
 		$table = strtolower(Str::plural($model));
 		$structure = DB::query("SHOW COLUMNS FROM `".$table."`");
@@ -31,10 +31,10 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 
 	public function get_add($model=null){
 
-		if(is_null($model)) return Redirect::to('/admin');
+		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::url('/'));
 
 		$model = Adminify\Libraries\Helpers::getModel($model);
-		if(is_null($model)) return Redirect::to('/admin');
+		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::url('/'));
 
 		$table = strtolower(Str::plural($model));
 		$structure = DB::query("SHOW COLUMNS FROM `".$table."`");
@@ -72,13 +72,13 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 		$model = Adminify\Libraries\Helpers::getModel($model);
 		$model::create($input);
 
-		return Redirect::to('/admin/models/'.$name)->with('added', true);
+		return Redirect::to(Adminify\Libraries\Helpers::url('/models/'.$name))->with('added', true);
 
 	}
 
 	public function get_delete($model=null, $id=null){
 
-		if(is_null($model) || is_null($id)) return Redirect::to('/admin');
+		if(is_null($model) || is_null($id)) return Redirect::to(Adminify\Libraries\Helpers::url('/'));
 
 		$this->layout->title = 'Delete Entry';
 		$this->layout->nest('content', 'adminify::models.delete', array(
@@ -94,12 +94,12 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 
 		$model = Helpers::getModel($model);
 
-		if(is_null($model)) return Redirect::to('/admin');
+		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::url('/'));
 
 		$entry = $model::find($id);
 		$entry->delete();
 
-		return Redirect::to('/admin/models/'.$name)->with('deleted', true);
+		return Redirect::to(Adminify\Libraries\Helpers::url('/models/'.$name))->with('deleted', true);
 
 	}
 
@@ -107,11 +107,11 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 
 		$name = $model;
 
-		if(is_null($model) || is_null($id)) return Redirect::to('/admin');
+		if(is_null($model) || is_null($id)) return Redirect::to(Adminify\Libraries\Helpers::url('/'));
 
 		$model = Helpers::getModel($model);
 
-		if(is_null($model)) return Redirect::to('/admin');
+		if(is_null($model)) return Redirect::to(Adminify\Libraries\Helpers::url('/'));
 
 		$entry = $model::find($id);
 		$table = strtolower(Str::plural($model));

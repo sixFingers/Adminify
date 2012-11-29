@@ -14,10 +14,10 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="/admin">{{$name}}</a>
+				<a class="brand" href="{{Adminify\Libraries\Helpers::url('/')}}">{{$name}}</a>
 				<ul class="nav">
 					<li>
-						<a href="/admin">Dashboard</a>
+						<a href="{{Adminify\Libraries\Helpers::url('/')}}">Dashboard</a>
 					</li>
 					@if(!empty($models))
 					<li class="dropdown">
@@ -28,7 +28,7 @@
 						<ul class="dropdown-menu">
 							@foreach($models as $model)
 							<li>
-								<a href="/admin/models/{{$model}}">{{$model}}</a>
+								<a href="{{Adminify\Libraries\Helpers::url('/models/'.$model)}}">{{$model}}</a>
 							</li>
 							@endforeach
 						</ul>
@@ -43,7 +43,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="/admin/login/logout"><i class="icon-off"></i> Logout</a>
+								<a href="{{Adminify\Libraries\Helpers::url('/login/logout')}}"><i class="icon-off"></i> Logout</a>
 							</li>
 						</ul>
 					</li>

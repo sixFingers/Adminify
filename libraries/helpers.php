@@ -1,7 +1,9 @@
 <?php namespace Adminify\Libraries;
 
 use Laravel\Config as Config,
-Laravel\Str as Str;
+Laravel\Str as Str,
+Laravel\Bundle as Bundle,
+Laravel\URL as URL;
 
 class Helpers{
 
@@ -42,6 +44,15 @@ class Helpers{
 
 		return array_merge($excluded['all'], $excluded[$model]);
 
+	}
+
+	public static function handle(){
+		return Bundle::$bundles['adminify']['handles'];
+	}
+
+	public static function url($url){
+		$url = trim($url, '/');
+		return URL::to(static::handle().'/'.$url);
 	}
 
 }

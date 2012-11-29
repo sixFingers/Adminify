@@ -17,7 +17,7 @@ class Adminify_Login_Controller extends Adminify_Loginbase_Controller {
 		);
 
 		if(Auth::attempt($creds)){
-			return Redirect::to('/admin');
+			return Redirect::to(Adminify\Libraries\Helpers::handle());
 		} else {
 			return Redirect::back()->with('error', true);
 		}
@@ -26,7 +26,7 @@ class Adminify_Login_Controller extends Adminify_Loginbase_Controller {
 
 	public function get_logout(){
 		Auth::logout();
-		return Redirect::to('/admin');
+		return Redirect::to(Adminify\Libraries\Helpers::handle());
 	}
 
 }
