@@ -58,7 +58,7 @@ class Helpers{
 
 	public static function logfiles(){
 
-		$files = scandir(path('storage').'/logs', SCANDIR_SORT_DESCENDING);
+		$files = array_reverse(scandir(path('storage').'/logs'));
 		$return = array();
 
 		foreach($files as $file) if(stristr($file, '.log')) $return[] = str_replace('.log', '', $file);
