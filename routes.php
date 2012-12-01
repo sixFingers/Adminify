@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/(:bundle)/models/(:any)', 'Adminify::models@index');
+Route::get('/(:bundle)/logs/(:any)', 'Adminify::logs@single');
 
 Route::controller(Controller::detect('adminify'));
 

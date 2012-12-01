@@ -1,3 +1,5 @@
+<div class="well well-white main-cont">
+
 <div class="page-header">
 	<h2>Delete {{$model}}</h2>
 </div>
@@ -14,3 +16,5 @@
 
 {{Form::token()}}
 {{Form::close()}}
+
+</div>

@@ -34,6 +34,11 @@
 						</ul>
 					</li>
 					@endif
+					@if(Config::get('Adminify::settings.logs'))
+					<li>
+						<a href="{{Adminify\Libraries\Helpers::url('/logs')}}" title="Logs">Logs</a>
+					</li>
+					@endif
 				</ul>
 				<ul class="nav pull-right">
 					<li class="dropdown">
@@ -53,9 +58,9 @@
 	</div>
 
 	<div class="container">
-		<div class="well well-white main-cont">
-			{{$content}}
-		</div>
+		
+		{{$content}}
+
 		<footer id="page-footer">
 			Adminify from Cocoon
 		</footer>

@@ -3,7 +3,8 @@
 use Laravel\Config as Config,
 Laravel\Str as Str,
 Laravel\Bundle as Bundle,
-Laravel\URL as URL;
+Laravel\URL as URL,
+Laravel\File as File;
 
 class Helpers{
 
@@ -53,6 +54,27 @@ class Helpers{
 	public static function url($url){
 		$url = trim($url, '/');
 		return URL::to(static::handle().'/'.$url);
+	}
+
+	public static function logfiles(){
+
+		$files = scandir(path('storage').'/logs', SCANDIR_SORT_DESCENDING);
+		$return = array();
+
+		foreach($files as $file) if(stristr($file, '.log')) $return[] = str_replace('.log', '', $file);
+
+		return $return;
+
+	}
+
+	public static function logs($logfile){
+
+		$file = File::get(path('storage').'/logs/'.$logfile.'.log');
+		$array =  array_reverse(explode("\n", $file));
+		unset($array[0]);
+
+		return $array;
+
 	}
 
 }

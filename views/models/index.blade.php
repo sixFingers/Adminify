@@ -1,3 +1,5 @@
+<div class="well well-white main-cont">
+
 <div class="page-header clearfix">
 	<h2 class="pull-left">{{$name}}</h2>
 	{{HTML::link('/admin/models/add/'.$name, 'Add '.$model, array('class' => 'btn btn-success pull-right'))}}
@@ -71,3 +73,5 @@
 	</table>
 	{{$entries->links()}}
 @endif
+
+</div>

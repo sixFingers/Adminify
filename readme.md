@@ -36,6 +36,10 @@ When you're done you should have an admin panel at youapplication.com/admin
 
 ## Changelog
 
+### v1.02
+
+Added a log viewer to Adminify
+
 ### v1.01
 
 Adminify now works on a different handle, hazzah!

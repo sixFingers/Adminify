@@ -11,10 +11,16 @@ return array(
 	|
 	| perpage: The number of items you want to show per page
 	|
+	| logs: If false Adminify will hide this from the navbar but you'll still
+	| be able to access it by visiting /logs
+	|
 	*/
 
 	'name' => 'Adminify',
+
 	'perpage' => 10,
+
+	'logs' => true,
 
 
 	/*
