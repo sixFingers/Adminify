@@ -28,7 +28,7 @@ Ensure you've installed migrations and then run the following on Artisan
 
 Finally, pop a user in the database
 
-    php artisan adminify::setup firstname lastname email@address.com password
+    php artisan adminify::setup firstname lastname username email@address.com password
 
 You can also pass through an optional 5th argument of role; the default is admin for first setup.
 
