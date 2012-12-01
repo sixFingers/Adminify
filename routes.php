@@ -6,5 +6,5 @@ Route::controller(Controller::detect('adminify'));
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::to('admin/login');
+	if (Auth::guest()) return Redirect::to(Adminify\Libraries\Helpers::handle().'/login');
 });
