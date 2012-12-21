@@ -11,10 +11,13 @@ class Adminify_Base_Controller extends Controller {
 
 		Config::set('auth.driver', 'adminauth');
 
-		Asset::add('bootstrap', 'bundles/adminify/css/bootstrap.min.css');
-		Asset::add('style', 'bundles/adminify/css/style.css');
-		Asset::add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
-		Asset::add('bootstrapjs', 'bundles/adminify/js/bootstrap.min.js');
+		Asset::container('header')->bundle('adminify');
+		Asset::container('header')->add('bootstrap', 'css/bootstrap.min.css');
+		Asset::container('header')->add('style', 'css/style.css');
+
+		Asset::container('footer')->bundle('adminify');
+		Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
+		Asset::container('footer')->add('bootstrapjs', 'js/bootstrap.min.js');
 
 		$this->layout->name = Config::get('adminify::settings.name');
 		$this->layout->models = Adminify\Libraries\Helpers::getModels();

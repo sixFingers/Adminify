@@ -1,6 +1,9 @@
 <div class="row">
 
 	<div class="span3">
+
+		@if(!empty($logfiles))
+
 		<ul class="nav nav-list bs-docs-sidenav affix">
 
 			@foreach($logfiles as $key => $log)
@@ -8,6 +11,9 @@
 			@endforeach
 			
 		</ul>
+
+		@endif
+
 	</div>
 
 
@@ -17,6 +23,8 @@
 			<div class="page-header">
 				<h1>Logs</h1>
 			</div>
+
+			@if(!empty($logs))
 
 			<ul class="unstyled logs">
 
@@ -29,6 +37,12 @@
 			@endforeach
 
 			</ul>
+
+			@else
+
+			<p class="lead">Looks like you haven't logged anything yet.</p>
+
+			@endif
 
 		</div>
 

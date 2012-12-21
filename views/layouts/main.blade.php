@@ -3,8 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>{{$name}} &raquo; {{$title}}</title>
-	{{Asset::styles()}}
-	{{Asset::scripts()}}
+	{{Asset::container('header')->styles()}}
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -39,6 +38,11 @@
 						<a href="{{Adminify\Libraries\Helpers::url('/logs')}}" title="Logs">Logs</a>
 					</li>
 					@endif
+					@if(Config::get('Adminify::settings.console'))
+					<li>
+						<a href="{{Adminify\Libraries\Helpers::url('/console')}}" title="SQL Console">SQL Console</a>
+					</li>
+					@endif
 				</ul>
 				<ul class="nav pull-right">
 					<li class="dropdown">
@@ -65,5 +69,6 @@
 			Adminify from Cocoon
 		</footer>
 	</div>
+	{{Asset::container('footer')->scripts()}}
 </body>
 </html>

@@ -14,6 +14,9 @@ return array(
 	| logs: If false Adminify will hide this from the navbar but you'll still
 	| be able to access it by visiting /logs
 	|
+	| console: If false Adminify will hide the SQL Console from the navbar but
+	| you'll still be able to access it by visiting /console
+	|
 	*/
 
 	'name' => 'Adminify',
@@ -21,6 +24,8 @@ return array(
 	'perpage' => 10,
 
 	'logs' => true,
+
+	'console' => true,
 
 
 	/*

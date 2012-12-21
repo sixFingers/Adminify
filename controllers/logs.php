@@ -7,7 +7,7 @@ class Adminify_Logs_Controller extends Adminify_Base_Controller {
 	public function get_index(){
 
 		$logfiles = Helpers::logfiles();
-		$logs = Helpers::logs($logfiles[0]);
+		$logs = (!empty($logfiles)) ? Helpers::logs($logfiles[0]) : array();
 
 		$this->layout->title = 'Logs';
 		$this->layout->nest('content', 'adminify::logs.index', array(

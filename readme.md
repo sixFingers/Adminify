@@ -36,6 +36,12 @@ When you're done you should have an admin panel at youapplication.com/admin
 
 ## Changelog
 
+### v1.03
+
+- Added console to Adminify
+- Fixed issue with logviewer that caused it to break when no logs were present
+- Changed the way assets are included
+
 ### v1.02
 
 Added a log viewer to Adminify
