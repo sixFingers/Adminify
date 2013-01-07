@@ -15,7 +15,7 @@ class Adminify_Create_Admins_Table {
 			$table->string('name', 200);
 			$table->string('username', 32)->unique();
 			$table->string('password', 64);
-			$table->string('email', 320)->unique();
+			$table->string('email', 255)->unique();
 			$table->string('role', 32);
 			$table->timestamps();
 		});
