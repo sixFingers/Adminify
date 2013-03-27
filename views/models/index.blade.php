@@ -19,25 +19,15 @@
 @endif
 
 @if(!empty($entries->results))
-  <ul class="nav nav-tabs">
-    <li class="active">
-      <a href="#filters" data-toggle="tab">Filtri</a>
-    </li>
-    <li>
-      <a href="#toggle-fields" data-toggle="tab">Campi</a>
-    </li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="filters">
-      Filtri
-    </div>
-    <div class="tab-pane" id="toggle-fields">
-      @foreach($structure as $field)
-      <label class="checkbox inline">
-        <input type="checkbox" data-action="toggle-field" data-target="{{$field->field}}" checked> {{ucwords($field->field)}}
-      </label> 
-      @endforeach
-    </div>
+  <p>
+    <strong>Campi visualizzati</strong>
+  </p>
+  <div class="well well-small">
+    @foreach($structure as $field)
+    <label class="checkbox inline">
+      <input type="checkbox" data-action="toggle-field" data-target="{{$field->field}}" checked> {{ucwords($field->field)}}
+    </label> 
+    @endforeach
   </div>
   <hr>
 	<table class="table table-striped table-bordered">

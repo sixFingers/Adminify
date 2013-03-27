@@ -1,3 +1,6 @@
+div.dataTables_filter {
+  margin-bottom: 10px;
+}
 table.table thead .sorting,
 table.table thead .sorting_asc,
 table.table thead .sorting_desc,
