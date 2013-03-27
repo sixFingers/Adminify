@@ -14,7 +14,6 @@
 @endif
 
 {{Form::open()}}
-
 <div class="columns">
 
 @foreach($structure as $field)

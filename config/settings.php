@@ -66,6 +66,7 @@ return array(
 	),
 
 	'exclude' => array(
+    'Model'
 	),
 
 	'fields' => array(

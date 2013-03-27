@@ -13,11 +13,15 @@ class Adminify_Base_Controller extends Controller {
 
 		Asset::container('header')->bundle('adminify');
 		Asset::container('header')->add('bootstrap', 'css/bootstrap.min.css');
+    Asset::container('header')->add('datatables', 'css/jquery.dataTables.css');
 		Asset::container('header')->add('style', 'css/style.css');
 
 		Asset::container('footer')->bundle('adminify');
 		Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
 		Asset::container('footer')->add('bootstrapjs', 'js/bootstrap.min.js');
+    Asset::container('footer')->add('datatables', 'js/jquery.dataTables.js');
+    Asset::container('footer')->add('datatablesBootstrap', 'js/jquery.dataTables.bootstrap.js');
+    Asset::container('footer')->add('main', 'js/main.js');
 
 		$this->layout->name = Config::get('adminify::settings.name');
 		$this->layout->models = Adminify\Libraries\Helpers::getModels();
