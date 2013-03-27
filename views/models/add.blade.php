@@ -30,7 +30,21 @@
 	@elseif($field->field == 'password')
 		{{Form::password($field->field)}}
 	@else
-		{{Form::text($field->field, Input::old($name))}}
+    <?php $out = Form::text($field->field, Input::old($name)); ?>
+    @if(array_key_exists($field->field, $model::$rules))
+      <?php $field_rules = explode("|", $model::$rules[$field->field]); ?>
+      @foreach($field_rules as $rule)
+        @if(substr($rule, 0, 3) == 'in:')
+          <?php 
+          $values = substr($rule, 3);
+          $values = explode(",", $values);
+          $values = array_combine($values, $values);
+          $out = Form::select($field->field, $values, Input::old($name)); 
+          ?>
+        @endif
+      @endforeach
+    @endif
+    {{$out}}
 	@endif
 
 @endforeach
