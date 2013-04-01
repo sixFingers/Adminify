@@ -45,6 +45,7 @@
           <?php 
           $values = substr($rule, 3);
           $values = explode(",", $values);
+          $values = array_combine($values, $values);
           $out = Form::select($field->field, $values); 
           ?>
         @endif
