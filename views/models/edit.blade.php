@@ -33,11 +33,24 @@
 	<?php $name = $field->field ?>
 
 	@if(stristr($field->type, 'text'))
-		{{Form::textarea($field->field, $entry->$name)}}
+    {{Form::textarea($field->field, $entry->$name)}}
 	@elseif($field->field == 'password')
 		{{Form::password($field->field)}}
 	@else
-		{{Form::text($field->field, $entry->$name)}}
+    <?php $out = Form::text($field->field, $entry->$name); ?>
+    @if(array_key_exists($field->field, $model::$rules))
+      <?php $field_rules = explode("|", $model::$rules[$field->field]); ?>
+      @foreach($field_rules as $rule)
+        @if(substr($rule, 0, 3) == 'in:')
+          <?php 
+          $values = substr($rule, 3);
+          $values = explode(",", $values);
+          $out = Form::select($field->field, $values); 
+          ?>
+        @endif
+      @endforeach
+    @endif
+    {{$out}}
 	@endif
 
 @endforeach
