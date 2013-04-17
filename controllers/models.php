@@ -58,7 +58,7 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 		unset($input['csrf_token']);
 
     $model = Helpers::getModel($model);
-		$rules = $rules = property_exists($model, 'rules') ? $model::$rules: Config::get('Adminify::settings.validation');
+		$rules = Config::get('Adminify::settings.validation');
 		$messages = Config::get('Adminify::settings.messages');
 		$validation = Validator::make($input, $rules, $messages);
 
@@ -137,7 +137,7 @@ class Adminify_Models_Controller extends Adminify_Base_Controller {
 		unset($input['csrf_token']);
 
     $model = Helpers::getModel($model);
-		$rules = property_exists($model, 'rules') ? $model::$rules: Config::get('Adminify::settings.validation');
+		$rules = Config::get('Adminify::settings.validation');
     $messages = Config::get('Adminify::settings.messages');
 		$validation = Validator::make($input, $rules, $messages);
 

@@ -37,7 +37,10 @@
 	@elseif($field->field == 'password')
 		{{Form::password($field->field)}}
 	@else
-    <?php $out = Form::text($field->field, $entry->$name); ?>
+    <?php 
+    $out = Form::text($field->field, $entry->$name); 
+    $field_name = $field->field;
+    ?>
     @if(array_key_exists($field->field, $model::$rules))
       <?php $field_rules = explode("|", $model::$rules[$field->field]); ?>
       @foreach($field_rules as $rule)
@@ -46,7 +49,7 @@
           $values = substr($rule, 3);
           $values = explode(",", $values);
           $values = array_combine($values, $values);
-          $out = Form::select($field->field, $values); 
+          $out = Form::select($field->field, $values, $entry->$field_name); 
           ?>
         @endif
       @endforeach
