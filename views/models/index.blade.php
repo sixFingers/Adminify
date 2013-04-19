@@ -71,7 +71,18 @@
 
 					<?php if(in_array($field->field, $excluded)) continue ?>
 					<?php $ename = $field->field ?>
-					<td>{{$entry->$ename}}</td>
+					<td>
+            @if($field->field != 'image_file_name')
+              {{$entry->$ename}}
+            @else
+              <?php $photo = Photo::find($entry->id); ?>
+              <a href="<?php echo $photo->image_url(); ?>" target="_blank">
+              <?php 
+                echo HTML::image($photo->image_url('medium')); 
+              ?> 
+              </a>
+            @endif
+          </td>
 
 				@endforeach
 			</tr>
